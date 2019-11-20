@@ -1,16 +1,42 @@
 <?php
 #<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-	$chief = $since = $to = $alternate = "    ";
-#	if(!isset($_POST['comment']))
-#	{
-#		$comment = $_POST['comment'];
-		
-		$chief = $_POST['chief'];
-		$since = $_POST['since'];
-		$to = $_POST['to'];
-		$alternate = $_POST['alternate'];
-#	}
+	$chief = $since = $to = $alternate = "    "; 
+	$department_number = $chief_number = $alternate_department_number = $alternate_number = $author_number = $agreement_alternate_department_number = 0;
+    $department = $chief_name = $alternate_position = $alternate_name = $alternate_money = $alternate_name_agreement = " ";
+	$author_position = $author_name = $agreement_position_alternate = $agreement_alternate_name = $departments_numbers = " ";
+	$alternate_gender = 0;
+	$date_since = $date_to = "12.09/2019";
+
+	$department = $_POST['department'];
+	$chief_name = $_POST['chief_name'];
+	$alternate_position = $_POST['alternate_position'];
+	$alternate_name = $_POST['alternate_name'];
+	$alternate_money = $_POST['alternate_money'];
+	$alternate_name_agreement = $_POST['alternate_name_agreement'];
+	$author_position = $_POST['author_position'];
+	$author_name = $_POST['author_name'];
+	$agreement_position_alternate = $_POST['agreement_position_alternate'];
+	$agreement_alternate_name = $_POST['agreement_alternate_name'];	
+
+#	$date_since = $_POST['date_since'];
+#	$date_to = $_POST['date_to'];
+
+	echo $department;
+	echo $chief_name;
+	echo $alternate_position;
+	echo $alternate_name;
+	echo $alternate_money;
+	echo $alternate_name_agreement;
+	echo $author_position;
+	echo $author_name;
+	echo $agreement_position_alternate;
+	echo $agreement_alternate_name;
+	echo $departments_numbers;
+	
+	echo $date_since;
+    echo $date_to;
+
 
 	echo 'Document was created';
 	require 'vendor/autoload.php';

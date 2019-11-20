@@ -1,21 +1,7 @@
 <?php
-#<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-	$chief = $since = $to = $alternate = "    ";
-#	if(!isset($_POST['comment']))
-#	{
-#		$comment = $_POST['comment'];
-		
-		$chief = $_POST['chief'];
-		$since = $_POST['since'];
-		$to = $_POST['to'];
-		$alternate = $_POST['alternate'];
-#	}
-
 	echo 'Document was created';
 	require 'vendor/autoload.php';
 	$phpWord = new \PhpOffice\PhpWord\PhpWord();
-	
 	
 	$phpWord->setDefaultFontName('Times New Roman');
 	$phpWord->setDefaultFontSize(14);
@@ -33,7 +19,6 @@
 	$properties->setKeywords('my, key, word'); 
 	
 	$sectionStyle = array(
- 
 #	'orientation' => 'landscape',
 	'marginTop' => \PhpOffice\PhpWord\Shared\Converter::pixelToTwip(10),
 	'marginLeft' => 600,
@@ -69,11 +54,11 @@
 	$section->addText(htmlspecialchars("Об исполнении обязанностей временно отсутствующего работника"), 
 	array('name'=>'Times New Roman', 'size'=>14, 'color'=>'000000', 'bold'=>FALSE, 'italic'=>FALSE), array('align'=>'left','spaceBefore'=>10));	
 	
-	$section->addText(htmlspecialchars("1.	В связи с отпуском начальника отдела № 138 $chief с $since по $to исполнение его обязанностей на указанный срок возложить на начальника группы отдела № 138 $alternate и установить ей доплату за исполнение обязанностей временно отсутствующего работника в размере 4000 рублей в месяц."), 
-	array('name'=>'Times New Roman', 'size'=>14, 'color'=>'000000', 'bold'=>FALSE, 'italic'=>FALSE), array('align'=>'left','spaceBefore'=>10));
+	$section->addText(htmlspecialchars("1.	В связи с отпуском начальника отдела № 138 $chief_name с $date_since по $date_to исполнение его обязанностей на указанный срок возложить на $alternate_position отдела № 138 $alternate_name и установить ей доплату за исполнение обязанностей временно отсутствующего работника в размере $alternate_money рублей в месяц."), 
+	array('name'=>'Times New Roman', 'size'=>14, 'color'=>'000000', 'bold'=>FALSE, 'italic'=>FALSE), array('align'=>'both','spaceBefore'=>10));
 	
 	$section->addText(htmlspecialchars("2.	Контроль за исполнением настоящего приказа возложить на заместителя генерального директора по качеству С.В. Орлова."), 
-	array('name'=>'Times New Roman', 'size'=>14, 'color'=>'000000', 'bold'=>FALSE, 'italic'=>FALSE), array('align'=>'left','spaceBefore'=>10));	
+	array('name'=>'Times New Roman', 'size'=>14, 'color'=>'000000', 'bold'=>FALSE, 'italic'=>FALSE), array('align'=>'both','spaceBefore'=>10));	
 
 	$section->addText(htmlspecialchars(" "), 
 	array('name'=>'Times New Roman', 'size'=>14, 'color'=>'000000', 'bold'=>TRUE, 'italic'=>FALSE), $parStyle);
@@ -84,9 +69,43 @@
 	$section->addText(htmlspecialchars(" "), 
 	array('name'=>'Times New Roman', 'size'=>14, 'color'=>'000000', 'bold'=>TRUE, 'italic'=>FALSE), $parStyle);
 	
-	$section->addText(htmlspecialchars("Генеральный директор 							Е.Л. Межирицкий"), 
-	array('name'=>'Times New Roman', 'size'=>14, 'color'=>'000000', 'bold'=>FALSE, 'italic'=>FALSE), $parStyle);
+	$section->addText(htmlspecialchars("Генеральный директор 									Е.Л. Межирицкий"), 
+	array('name'=>'Times New Roman', 'size'=>14, 'color'=>'000000', 'bold'=>FALSE, 'italic'=>FALSE), array('align'=>'left','spaceBefore'=>10));
+	
+	
+	$section->addText(htmlspecialchars($text0), $fontStyle, $parStyle);
+	$section->addText(htmlspecialchars($text0), $fontStyle, $parStyle);
+	$section->addText(htmlspecialchars($text0), $fontStyle, $parStyle);
+	$section->addText(htmlspecialchars($text0), $fontStyle, $parStyle);
+	$section->addText(htmlspecialchars($text0), $fontStyle, $parStyle);
+	
+#	$table = $section->addTable();
+#	$table->addRow();
+#	$table->addCell(300)->addText("qweqwe");
+	
+#	$table = $section->addTable([$tableStyle]);
+#	$table->addRow([$height], [$rowStyle]);
+#	$cell = $table->addCell($width, [$cellStyle]);
+	
+	
+#	$tableStyle = array(
+#    'borderColor' => '006699',
+#    'borderSize'  => 6,
+#    'cellMargin'  => 50);
+#	
+#	$firstRowStyle = array('bgColor' => 'CC9999', 'bgColor' => 'FF7777');
+#	$table = $section->addTable('myTable');
+#	$phpWord->addTableStyle('myTable', $tableStyle, $firstRowStyle);
+
+	
+	
+	
+	$section->addText(htmlspecialchars("Приказ составил:"), 
+	array('name'=>'Times New Roman', 'size'=>14, 'color'=>'000000', 'bold'=>FALSE, 'italic'=>FALSE), array('align'=>'left','spaceBefore'=>10));
+	$section->addText(htmlspecialchars("$author_position отдела № $author_number                                 						    $author_name"), 
+	array('name'=>'Times New Roman', 'size'=>14, 'color'=>'000000', 'bold'=>FALSE, 'italic'=>FALSE), array('align'=>'left','spaceBefore'=>10));
 	
 	$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord,'Word2007');
-	$objWriter->save('doc.docx');
+	$objWriter->save('table.docx');
+	
 ?>
